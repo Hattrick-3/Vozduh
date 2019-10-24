@@ -1,14 +1,49 @@
 $(function(){
-	
+  var h_section1 = $('.first').height();
+  var h_section2 = $('.third').height();
+
+  var h = h_section1+h_section2+70;
+  $('.bg').height(h);
+  $('.bg2').height(h);
+
+
+  var bg_white = $('.bg2');
+  var bg_state = null;
+  var scroll_blue = h_section1-300;
+  var scroll_white = h_section1;
+
+  $(window).scroll(function() {
+    
+    var scroll_current = $(this).scrollTop();
+    if (scroll_current < scroll_blue) {
+      if (bg_state != 'blue') {
+        bg_state = 'blue';
+        bg_white.stop().animate({
+          opacity: 0
+        });
+      }
+    } else if (scroll_current > scroll_blue) {
+      if (bg_state != 'white') {
+        bg_state = 'white';
+        bg_white.stop().animate({
+          opacity: 1
+        });
+      }
+    } else {
+      bg_state = null;
+      bg_white.animate({
+        opacity: (scroll_current - scroll_blue) /(scroll_white - scroll_blue)
+      });
+    }
+  });
     
   $(window).on("scroll", function() {
-  	 	
-  		console.log($(window).scrollTop())
-  		
-        if($(window).scrollTop() > 10) {
-            $(".header").addClass("active");
+  		  var w_header = $(".header").width();
+        if($(window).scrollTop() > 0) {
+            $(".header").css('background','#0D0D5B');
+  
         } else {
-           $(".header").removeClass("active");
+           $(".header").css('background','#266AA0');
         }
        
           	$.jInvertScroll(['.numbers'])
@@ -22,17 +57,22 @@ $(function(){
   var block6 = $(".block6");
   var block7 = $(".block7");
   var block8 = $(".block8");
+  var timer;
   block1.on("mouseover", function(){
-  	block2.addClass("mouse")
-  	block3.addClass("mouse")
-  	block4.addClass("mouse")
-  	block5.addClass("mouse")
-  	block6.addClass("mouse")
-  	block7.addClass("mouse")
-  	block8.addClass("mouse")
+    timer=setTimeout(function(){
+      block2.addClass("mouse")
+    block3.addClass("mouse")
+    block4.addClass("mouse")
+    block5.addClass("mouse")
+    block6.addClass("mouse")
+    block7.addClass("mouse")
+    block8.addClass("mouse")
+  },200)
+  	
   	
   })
   block1.on("mouseout", function(){
+    timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block3.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -40,9 +80,11 @@ $(function(){
   	block6.removeClass("mouse")
   	block7.removeClass("mouse")
   	block8.removeClass("mouse")
+  },200)
 
   })
   block2.on("mouseover", function(){
+    timer=setTimeout(function(){
   	block1.addClass("mouse")
   	block3.addClass("mouse")
   	block4.addClass("mouse")
@@ -50,9 +92,10 @@ $(function(){
   	block6.addClass("mouse")
   	block7.addClass("mouse")
   	block8.addClass("mouse")
-  	
+  	  },200)
   })
   block2.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block1.removeClass("mouse")
   	block3.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -60,9 +103,11 @@ $(function(){
   	block6.removeClass("mouse")
   	block7.removeClass("mouse")
   	block8.removeClass("mouse")
+        },200)
 
   })
   block3.on("mouseover", function(){
+     timer=setTimeout(function(){
   	block2.addClass("mouse")
   	block1.addClass("mouse")
   	block4.addClass("mouse")
@@ -70,9 +115,11 @@ $(function(){
   	block6.addClass("mouse")
   	block7.addClass("mouse")
   	block8.addClass("mouse")
+        },200)
   	
   })
   block3.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block1.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -80,9 +127,11 @@ $(function(){
   	block6.removeClass("mouse")
   	block7.removeClass("mouse")
   	block8.removeClass("mouse")
+        },200)
 
   })
   block4.on("mouseover", function(){
+     timer=setTimeout(function(){
   	block2.addClass("mouse")
   	block3.addClass("mouse")
   	block1.addClass("mouse")
@@ -90,9 +139,11 @@ $(function(){
   	block6.addClass("mouse")
   	block7.addClass("mouse")
   	block8.addClass("mouse")
+        },200)
   	
   })
   block4.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block3.removeClass("mouse")
   	block1.removeClass("mouse")
@@ -100,9 +151,11 @@ $(function(){
   	block6.removeClass("mouse")
   	block7.removeClass("mouse")
   	block8.removeClass("mouse")
+        },200)
 
   })
   block5.on("mouseover", function(){
+     timer=setTimeout(function(){
   	block2.addClass("mouse")
   	block3.addClass("mouse")
   	block4.addClass("mouse")
@@ -110,9 +163,11 @@ $(function(){
   	block6.addClass("mouse")
   	block7.addClass("mouse")
   	block8.addClass("mouse")
+        },200)
   	
   })
   block5.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block3.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -120,9 +175,11 @@ $(function(){
   	block6.removeClass("mouse")
   	block7.removeClass("mouse")
   	block8.removeClass("mouse")
+        },200)
 
   })
   block6.on("mouseover", function(){
+     timer=setTimeout(function(){
   	block2.addClass("mouse")
   	block3.addClass("mouse")
   	block4.addClass("mouse")
@@ -130,9 +187,11 @@ $(function(){
   	block1.addClass("mouse")
   	block7.addClass("mouse")
   	block8.addClass("mouse")
+        },200)
   	
   })
   block6.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block3.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -140,9 +199,11 @@ $(function(){
   	block1.removeClass("mouse")
   	block7.removeClass("mouse")
   	block8.removeClass("mouse")
+        },200)
 
   })
   block7.on("mouseover", function(){
+     timer=setTimeout(function(){
   	block2.addClass("mouse")
   	block3.addClass("mouse")
   	block4.addClass("mouse")
@@ -150,9 +211,11 @@ $(function(){
   	block6.addClass("mouse")
   	block1.addClass("mouse")
   	block8.addClass("mouse")
+        },200)
   	
   })
   block7.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block3.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -160,9 +223,11 @@ $(function(){
   	block6.removeClass("mouse")
   	block1.removeClass("mouse")
   	block8.removeClass("mouse")
+        },200)
 
   })
    block8.on("mouseover", function(){
+     timer=setTimeout(function(){
   	block2.addClass("mouse")
   	block3.addClass("mouse")
   	block4.addClass("mouse")
@@ -170,9 +235,11 @@ $(function(){
   	block6.addClass("mouse")
   	block7.addClass("mouse")
   	block1.addClass("mouse")
+        },200)
   	
   })
   block8.on("mouseout", function(){
+     timer=setTimeout(function(){
   	block2.removeClass("mouse")
   	block3.removeClass("mouse")
   	block4.removeClass("mouse")
@@ -180,6 +247,7 @@ $(function(){
   	block6.removeClass("mouse")
   	block7.removeClass("mouse")
   	block1.removeClass("mouse")
+        },200)
 
   })
 });
@@ -250,8 +318,8 @@ $(function(){
             
             // do the position calculation for each element
             $.each(elements, function(i, el) {
-                var pos = Math.floor((el.width - winWidth) * scrollPercent) * -1;
-                el.el.css('right', pos);
+                var pos = Math.floor(12.5*(el.width - winWidth) * scrollPercent) * 1;
+                el.el.css('left', pos);
             });
         });
     };
